@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Custom colors based on the logo
+				easy: {
+					green: '#4C9F56',
+					lightGreen: '#7BC069',
+					blue: '#348AC7',
+					purple: '#7B5AC5',
+					red: '#E84C3D',
+					orange: '#F5A623',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,12 +94,47 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-in-slow': 'fade-in 0.8s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'hero-gradient': 'linear-gradient(90deg, #4C9F56 0%, #348AC7 50%, #E84C3D 100%)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
