@@ -89,7 +89,7 @@ export function HeroSection() {
                           <p className="text-xs text-gray-500">Tech ETF</p>
                         </div>
                       </div>
-                      <p className="font-semibold">$587.63</p>
+                      <p className="font-semibold">₹587.63</p>
                     </div>
                   </div>
                 </div>
