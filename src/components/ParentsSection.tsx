@@ -1,33 +1,24 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Eye, Lock, Shield, Sliders } from "lucide-react";
-
 export function ParentsSection() {
-  const parentControls = [
-    {
-      icon: <Shield className="h-6 w-6 text-easy-blue" />,
-      title: "Complete Oversight",
-      description: "Monitor your teen's spending and savings in real-time with instant notifications."
-    },
-    {
-      icon: <Lock className="h-6 w-6 text-easy-blue" />,
-      title: "Spending Controls",
-      description: "Set daily or weekly spending limits and merchant category restrictions."
-    },
-    {
-      icon: <Eye className="h-6 w-6 text-easy-blue" />,
-      title: "Investment Approval",
-      description: "Review and approve any investment decisions your teen wants to make."
-    },
-    {
-      icon: <Sliders className="h-6 w-6 text-easy-blue" />,
-      title: "Flexible Permissions",
-      description: "Gradually increase financial independence as your teen demonstrates responsibility."
-    }
-  ];
-
-  return (
-    <section id="for-parents" className="py-20 px-4 bg-white">
+  const parentControls = [{
+    icon: <Shield className="h-6 w-6 text-easy-blue" />,
+    title: "Complete Oversight",
+    description: "Monitor your teen's spending and savings in real-time with instant notifications."
+  }, {
+    icon: <Lock className="h-6 w-6 text-easy-blue" />,
+    title: "Spending Controls",
+    description: "Set daily or weekly spending limits and merchant category restrictions."
+  }, {
+    icon: <Eye className="h-6 w-6 text-easy-blue" />,
+    title: "Investment Approval",
+    description: "Review and approve any investment decisions your teen wants to make."
+  }, {
+    icon: <Sliders className="h-6 w-6 text-easy-blue" />,
+    title: "Flexible Permissions",
+    description: "Gradually increase financial independence as your teen demonstrates responsibility."
+  }];
+  return <section id="for-parents" className="py-20 px-4 bg-white">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -42,13 +33,11 @@ export function ParentsSection() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {parentControls.map((control, index) => (
-                <div key={index} className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+              {parentControls.map((control, index) => <div key={index} className="bg-gray-50 p-5 rounded-xl border border-gray-100">
                   <div className="mb-3">{control.icon}</div>
                   <h3 className="font-semibold mb-2">{control.title}</h3>
                   <p className="text-gray-600 text-sm">{control.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <Button className="rounded-full px-6 bg-easy-blue text-white hover:bg-easy-blue/90">
@@ -72,7 +61,7 @@ export function ParentsSection() {
                   <div className="flex space-x-4">
                     <div className="flex-1 p-3 bg-white rounded-lg shadow-sm">
                       <p className="text-xs text-gray-500">Current Balance</p>
-                      <p className="font-bold text-lg">$238.42</p>
+                      <p className="font-bold text-lg">₹238.42</p>
                     </div>
                     <div className="flex-1 p-3 bg-white rounded-lg shadow-sm">
                       <p className="text-xs text-gray-500">Savings</p>
@@ -165,6 +154,5 @@ export function ParentsSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
