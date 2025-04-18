@@ -1,10 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
 export function HeroSection() {
-  return (
-    <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  return <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
@@ -43,17 +40,13 @@ export function HeroSection() {
             <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-gradient-to-br from-easy-blue/10 to-easy-red/10 rounded-full blur-3xl"></div>
             <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
               <div className="bg-gradient-to-r from-easy-green to-easy-blue h-32 flex items-center justify-center">
-                <img 
-                  src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" 
-                  alt="PayWithEasy Logo"
-                  className="h-16" 
-                />
+                <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="PayWithEasy Logo" className="h-16" />
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
                   <div>
                     <p className="text-sm text-gray-500">Account Balance</p>
-                    <p className="text-2xl font-bold">$1,275.84</p>
+                    <p className="text-2xl font-bold">₹1,275.84</p>
                   </div>
                   <div className="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
                     +12.4%
@@ -77,7 +70,9 @@ export function HeroSection() {
                       <p className="font-semibold">$378.21</p>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                      <div className="bg-easy-blue h-2 rounded-full" style={{ width: '65%' }}></div>
+                      <div className="bg-easy-blue h-2 rounded-full" style={{
+                      width: '65%'
+                    }}></div>
                     </div>
                   </div>
                   
@@ -107,6 +102,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
