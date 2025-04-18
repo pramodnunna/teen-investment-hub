@@ -37,7 +37,7 @@ export function TeensSection() {
                   <div className="bg-white p-4 rounded-lg shadow-sm">
                     <div className="flex justify-between">
                       <p className="font-medium">Savings Transfer</p>
-                      <p className="font-medium text-easy-blue">-$15.00</p>
+                      <p className="font-medium text-easy-blue">-₹15.00</p>
                     </div>
                     <p className="text-xs text-gray-500">Laptop Fund</p>
                   </div>
