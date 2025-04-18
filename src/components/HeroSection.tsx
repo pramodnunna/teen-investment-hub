@@ -6,7 +6,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-easy-green to-easy-blue">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-easy-green to-easy-blue text-left">
                 Banking & Investing
               </span>
               <br />
