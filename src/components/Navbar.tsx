@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AlignRight, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,22 +10,21 @@ export function Navbar() {
   return (
     <nav className="w-full py-4 px-4 md:px-8 bg-white/90 backdrop-blur-sm fixed top-0 z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img 
             src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" 
             alt="PayWithEasy Logo" 
             className="h-10 mr-2" 
           />
           <span className="text-lg font-semibold hidden sm:inline text-gray-800">PayWithEasy</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <a href="#features" className="text-gray-600 hover:text-easy-green transition-colors">Features</a>
-          <a href="#for-teens" className="text-gray-600 hover:text-easy-blue transition-colors">For Teens</a>
-          <a href="#for-parents" className="text-gray-600 hover:text-easy-purple transition-colors">For Parents</a>
+          <Link to="/teens" className="text-gray-600 hover:text-easy-blue transition-colors">For Teens</Link>
+          <Link to="/parents" className="text-gray-600 hover:text-easy-purple transition-colors">For Parents</Link>
           <a href="#investments" className="text-gray-600 hover:text-easy-red transition-colors">Investments</a>
-          <a href="/financial-literacy" className="text-gray-600 hover:text-easy-blue transition-colors">Financial Literacy</a>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -51,33 +52,26 @@ export function Navbar() {
             >
               Features
             </a>
-            <a 
-              href="#for-teens" 
+            <Link 
+              to="/teens" 
               className="text-gray-600 hover:text-easy-blue py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               For Teens
-            </a>
-            <a 
-              href="#for-parents" 
+            </Link>
+            <Link 
+              to="/parents" 
               className="text-gray-600 hover:text-easy-purple py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               For Parents
-            </a>
+            </Link>
             <a 
               href="#investments" 
               className="text-gray-600 hover:text-easy-red py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Investments
-            </a>
-            <a 
-              href="/financial-literacy" 
-              className="text-gray-600 hover:text-easy-blue py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Financial Literacy
             </a>
             <div className="flex flex-col space-y-2 pt-2">
               <Button variant="outline" className="w-full justify-center rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white">
