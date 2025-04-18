@@ -19,7 +19,7 @@ export function TeensSection() {
                       </div>
                       <div>
                         <p className="text-xs text-gray-500">Allowance Received</p>
-                        <p className="font-semibold">$25.00</p>
+                        <p className="font-semibold">₹2500.00</p>
                       </div>
                     </div>
                   </div>
