@@ -128,7 +128,7 @@ export function ParentsSection() {
                       <p className="text-sm font-medium">Online Purchase</p>
                       <p className="text-xs text-gray-500">Today, 2:34 PM</p>
                     </div>
-                    <p className="font-medium text-red-500">-$18.99</p>
+                    <p className="font-medium text-red-500">-₹189.99</p>
                   </div>
                   
                   <div className="p-3 bg-gray-50 rounded-lg flex items-center justify-between">
