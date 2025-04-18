@@ -23,16 +23,7 @@ export function HeroSection() {
                 Learn More <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
-            <div className="mt-8 flex items-center">
-              <div className="flex -space-x-2">
-                <img className="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="User" />
-                <img className="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="User" />
-                <img className="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&h=80&q=80" alt="User" />
-              </div>
-              <p className="ml-4 text-gray-600 text-sm">
-                <span className="font-semibold">1,000+</span> teens are already growing their money
-              </p>
-            </div>
+            
           </div>
           
           <div className="relative animate-fade-in-slow">

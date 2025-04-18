@@ -1,43 +1,32 @@
-
 import { Button } from "@/components/ui/button";
 import { Book, School, Target, Users, ShieldCheck, LineChart } from "lucide-react";
-
 export function FinancialLiteracySection() {
-  const coreComponents = [
-    {
-      icon: <Book className="h-6 w-6 text-easy-blue" />,
-      title: "Foundational Financial Knowledge",
-      description: "Banking basics, budgeting principles, and saving strategies for students."
-    },
-    {
-      icon: <Target className="h-6 w-6 text-easy-green" />,
-      title: "Planning for the Future",
-      description: "College financing, career exploration, and introduction to investing."
-    },
-    {
-      icon: <ShieldCheck className="h-6 w-6 text-easy-purple" />,
-      title: "Consumer Skills & Protection",
-      description: "Smart shopping strategies and digital payment safety."
-    },
-    {
-      icon: <Users className="h-6 w-6 text-easy-red" />,
-      title: "Interactive Learning",
-      description: "Real-world simulations and team-based financial challenges."
-    },
-    {
-      icon: <School className="h-6 w-6 text-easy-orange" />,
-      title: "Teacher Resources",
-      description: "Comprehensive lesson plans and professional development support."
-    },
-    {
-      icon: <LineChart className="h-6 w-6 text-easy-blue" />,
-      title: "Measurable Impact",
-      description: "Track student progress and program effectiveness."
-    }
-  ];
-
-  return (
-    <section id="financial-literacy" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  const coreComponents = [{
+    icon: <Book className="h-6 w-6 text-easy-blue" />,
+    title: "Foundational Financial Knowledge",
+    description: "Banking basics, budgeting principles, and saving strategies for students."
+  }, {
+    icon: <Target className="h-6 w-6 text-easy-green" />,
+    title: "Planning for the Future",
+    description: "College financing, career exploration, and introduction to investing."
+  }, {
+    icon: <ShieldCheck className="h-6 w-6 text-easy-purple" />,
+    title: "Consumer Skills & Protection",
+    description: "Smart shopping strategies and digital payment safety."
+  }, {
+    icon: <Users className="h-6 w-6 text-easy-red" />,
+    title: "Interactive Learning",
+    description: "Real-world simulations and team-based financial challenges."
+  }, {
+    icon: <School className="h-6 w-6 text-easy-orange" />,
+    title: "Teacher Resources",
+    description: "Comprehensive lesson plans and professional development support."
+  }, {
+    icon: <LineChart className="h-6 w-6 text-easy-blue" />,
+    title: "Measurable Impact",
+    description: "Track student progress and program effectiveness."
+  }];
+  return <section id="financial-literacy" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-easy-blue/10 text-easy-blue rounded-full text-sm font-medium mb-4">
@@ -69,21 +58,17 @@ export function FinancialLiteracySection() {
             </div>
             
             <div className="p-6 bg-easy-blue/5 rounded-xl border border-easy-blue/10">
-              <blockquote className="text-gray-700 italic">
-                "The curriculum was easy to integrate into our existing classes and provided exactly what our students needed—practical financial skills they'll use throughout their lives."
-              </blockquote>
-              <p className="mt-2 font-medium text-easy-blue">- Teacher, Eastside Academy</p>
+              <blockquote className="text-gray-700 italic">"The curriculum was easy to integrate into our existing classes and provided exactly what our students needed practical financial skills they'll use throughout their lives."</blockquote>
+              <p className="mt-2 font-medium text-easy-blue">- Teacher, Sri Prakash synergy school</p>
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {coreComponents.map((component, index) => (
-              <div key={index} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            {coreComponents.map((component, index) => <div key={index} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="mb-3">{component.icon}</div>
                 <h3 className="font-semibold mb-2">{component.title}</h3>
                 <p className="text-gray-600 text-sm">{component.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
         
@@ -93,6 +78,5 @@ export function FinancialLiteracySection() {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
