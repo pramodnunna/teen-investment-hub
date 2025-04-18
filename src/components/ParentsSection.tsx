@@ -87,7 +87,7 @@ export function ParentsSection() {
                       </div>
                       <p className="text-sm">Spending Limit</p>
                     </div>
-                    <p className="font-medium">$75/week</p>
+                    <p className="font-medium">₹750/week</p>
                   </div>
                   
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
