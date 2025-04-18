@@ -86,7 +86,7 @@ export function HeroSection() {
                         </div>
                         <div className="ml-3">
                           <p className="text-sm font-medium">Investments</p>
-                          <p className="text-xs text-gray-500">Tech ETF</p>
+                          <p className="text-xs text-gray-500">Mutual Funds</p>
                         </div>
                       </div>
                       <p className="font-semibold">₹587.63</p>
