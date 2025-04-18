@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,11 +55,11 @@ export default {
 				},
 				// Custom colors based on the logo
 				easy: {
-					green: 'hsl(var(--easy-green))',
+					green: '#4C9F56',
 					lightGreen: '#7BC069',
-					blue: 'hsl(var(--easy-blue))',
-					purple: 'hsl(var(--easy-purple))',
-					red: 'hsl(var(--easy-red))',
+					blue: '#348AC7',
+					purple: '#7B5AC5',
+					red: '#E84C3D',
 					orange: '#F5A623',
 				},
 				sidebar: {
@@ -132,7 +133,7 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-gradient': 'linear-gradient(90deg, hsl(var(--easy-green)) 0%, hsl(var(--easy-blue)) 50%, hsl(var(--easy-red)) 100%)',
+				'hero-gradient': 'linear-gradient(90deg, #4C9F56 0%, #348AC7 50%, #E84C3D 100%)',
 			},
 		}
 	},
