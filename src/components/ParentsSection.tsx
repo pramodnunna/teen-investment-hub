@@ -64,7 +64,7 @@ export function ParentsSection() {
                       <p className="font-bold text-lg">₹238.42</p>
                     </div>
                     <div className="flex-1 p-3 bg-white rounded-lg shadow-sm">
-                      <p className="text-xs text-gray-500">Savings</p>
+                      <p className="text-xs text-gray-500 text-center">Savings</p>
                       <p className="font-bold text-lg">$145.00</p>
                     </div>
                     <div className="flex-1 p-3 bg-white rounded-lg shadow-sm">
