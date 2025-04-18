@@ -67,7 +67,7 @@ export function HeroSection() {
                           <p className="text-xs text-gray-500">Goal: New Laptop</p>
                         </div>
                       </div>
-                      <p className="font-semibold">$378.21</p>
+                      <p className="font-semibold">₹378.21</p>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                       <div className="bg-easy-blue h-2 rounded-full" style={{
