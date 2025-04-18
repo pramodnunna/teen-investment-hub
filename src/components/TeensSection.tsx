@@ -45,7 +45,7 @@ export function TeensSection() {
                   <div className="bg-white p-4 rounded-lg shadow-sm">
                     <div className="flex justify-between">
                       <p className="font-medium">Coffee Shop</p>
-                      <p className="font-medium text-red-500">-$4.50</p>
+                      <p className="font-medium text-red-500">-₹20.0</p>
                     </div>
                     <p className="text-xs text-gray-500">3 days ago</p>
                   </div>
