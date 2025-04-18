@@ -146,7 +146,7 @@ export function ParentsSection() {
                       <p className="text-sm font-medium">Allowance Transfer</p>
                       <p className="text-xs text-gray-500">Monday, 9:00 AM</p>
                     </div>
-                    <p className="font-medium text-green-500">+$25.00</p>
+                    <p className="font-medium text-green-500">+₹750.00</p>
                   </div>
                 </div>
               </div>
