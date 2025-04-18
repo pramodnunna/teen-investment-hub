@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AlignRight, X } from "lucide-react";
@@ -24,6 +23,7 @@ export function Navbar() {
           <a href="#for-teens" className="text-gray-600 hover:text-easy-blue transition-colors">For Teens</a>
           <a href="#for-parents" className="text-gray-600 hover:text-easy-purple transition-colors">For Parents</a>
           <a href="#investments" className="text-gray-600 hover:text-easy-red transition-colors">Investments</a>
+          <a href="/financial-literacy" className="text-gray-600 hover:text-easy-blue transition-colors">Financial Literacy</a>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -71,6 +71,13 @@ export function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Investments
+            </a>
+            <a 
+              href="/financial-literacy" 
+              className="text-gray-600 hover:text-easy-blue py-2 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Financial Literacy
             </a>
             <div className="flex flex-col space-y-2 pt-2">
               <Button variant="outline" className="w-full justify-center rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white">
