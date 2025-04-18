@@ -15,7 +15,7 @@ export function TeensSection() {
                   <div className="absolute -bottom-5 -right-5 bg-white p-3 rounded-xl shadow-lg animate-float">
                     <div className="flex items-center space-x-2">
                       <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
-                        <span className="text-green-500 text-lg font-bold">+$</span>
+                        <span className="text-green-500 text-lg font-bold">+₹</span>
                       </div>
                       <div>
                         <p className="text-xs text-gray-500">Allowance Received</p>
