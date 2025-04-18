@@ -63,7 +63,7 @@ export function HeroSection() {
                           </svg>
                         </div>
                         <div className="ml-3">
-                          <p className="text-sm font-medium">Savings</p>
+                          <p className="text-sm font-medium text-left">Savings</p>
                           <p className="text-xs text-gray-500">Goal: New Laptop</p>
                         </div>
                       </div>
