@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PhoneNumberInput } from "./PhoneNumberInput";
-
 export function HeroSection() {
   const [phoneNumber, setPhoneNumber] = useState('');
-
   const handleGetStarted = () => {
     // You can add logic here to handle the phone number submission
     console.log('Phone number submitted:', phoneNumber);
   };
-
-  return (
-    <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  return <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
@@ -29,20 +25,12 @@ export function HeroSection() {
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <div className="w-full sm:w-auto">
-                <PhoneNumberInput 
-                  value={phoneNumber} 
-                  onChange={setPhoneNumber} 
-                />
+                <PhoneNumberInput value={phoneNumber} onChange={setPhoneNumber} />
               </div>
-              <Button 
-                onClick={handleGetStarted}
-                className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
-              >
+              <Button onClick={handleGetStarted} className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">
                 Get Started
               </Button>
-              <Button variant="outline" className="h-12 px-6 rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white">
-                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              
             </div>
             
             
@@ -116,6 +104,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
