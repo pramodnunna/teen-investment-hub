@@ -1,22 +1,14 @@
-
 import { Facebook, Instagram, Twitter } from "lucide-react";
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-gray-50 pt-12 pb-8 px-4">
+  return <footer className="bg-gray-50 pt-12 pb-8 px-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <a href="/" className="flex items-center mb-4">
-              <img
-                src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png"
-                alt="PayWithEasy Logo"
-                className="h-10"
-              />
+              <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="PayWithEasy Logo" className="h-10" />
             </a>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 text-left">
               The modern banking solution for teenagers with guided investment opportunities.
             </p>
             <div className="flex space-x-4">
@@ -74,6 +66,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
