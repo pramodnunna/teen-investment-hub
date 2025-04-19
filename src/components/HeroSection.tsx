@@ -1,7 +1,18 @@
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { PhoneNumberInput } from "./PhoneNumberInput";
+
 export function HeroSection() {
-  return <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleGetStarted = () => {
+    // You can add logic here to handle the phone number submission
+    console.log('Phone number submitted:', phoneNumber);
+  };
+
+  return (
+    <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
@@ -15,8 +26,18 @@ export function HeroSection() {
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
               A digital banking experience designed specifically for teenagers with guided investment opportunities and parental supervision.
             </p>
+            
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">
+              <div className="w-full sm:w-auto">
+                <PhoneNumberInput 
+                  value={phoneNumber} 
+                  onChange={setPhoneNumber} 
+                />
+              </div>
+              <Button 
+                onClick={handleGetStarted}
+                className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+              >
                 Get Started
               </Button>
               <Button variant="outline" className="h-12 px-6 rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white">
@@ -24,7 +45,9 @@ export function HeroSection() {
               </Button>
             </div>
             
+            
           </div>
+          
           
           <div className="relative animate-fade-in-slow">
             <div className="absolute -top-4 -left-4 w-64 h-64 bg-gradient-to-br from-easy-green/10 to-easy-blue/10 rounded-full blur-3xl"></div>
@@ -93,5 +116,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
