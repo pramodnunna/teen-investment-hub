@@ -1,12 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Book, School, Target, Users, ShieldCheck, LineChart } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
 const FinancialLiteracy = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       <main className="pt-20">
         <section className="py-20 px-4">
@@ -98,7 +95,7 @@ const FinancialLiteracy = () => {
                       "Implementing the financial literacy program helped our students connect math concepts to real life. 
                       We've seen increased engagement and better preparation for post-graduation decisions."
                     </blockquote>
-                    <p className="font-medium text-easy-blue">- Principal, Washington High School</p>
+                    <p className="font-medium text-easy-blue">- Principal, Sri chaitanya techno school</p>
                   </div>
                   
                   <div className="p-6 bg-easy-green/5 rounded-xl border border-easy-green/10">
@@ -121,8 +118,6 @@ const FinancialLiteracy = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default FinancialLiteracy;
