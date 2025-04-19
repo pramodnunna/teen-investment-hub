@@ -2,7 +2,6 @@
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FormItem, FormLabel, FormControl } from "@/components/ui/form";
 
 interface PhoneNumberInputProps {
   value: string;
@@ -17,17 +16,16 @@ export function PhoneNumberInput({ value, onChange }: PhoneNumberInputProps) {
   };
 
   return (
-    <FormItem>
-      <FormLabel>Phone Number</FormLabel>
-      <FormControl>
-        <Input 
-          type="tel" 
-          placeholder="Enter your phone number" 
-          value={value}
-          onChange={handleChange}
-          className="rounded-full"
-        />
-      </FormControl>
-    </FormItem>
+    <div className="space-y-2">
+      <Label htmlFor="phone-number">Phone Number</Label>
+      <Input 
+        id="phone-number"
+        type="tel" 
+        placeholder="Enter your phone number" 
+        value={value}
+        onChange={handleChange}
+        className="rounded-full"
+      />
+    </div>
   );
 }
