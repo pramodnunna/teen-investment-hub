@@ -12,7 +12,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#features" className="text-gray-600 hover:text-easy-green transition-colors">Features</a>
+          
           <a href="#for-teens" className="text-gray-600 hover:text-easy-blue transition-colors">For Teens</a>
           <a href="#for-parents" className="text-gray-600 hover:text-easy-purple transition-colors">For Parents</a>
           <a href="#investments" className="text-gray-600 hover:text-easy-red transition-colors">Investments</a>
