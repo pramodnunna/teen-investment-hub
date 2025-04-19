@@ -103,7 +103,7 @@ const FinancialLiteracy = () => {
                       "The curriculum was easy to integrate into our existing classes and provided exactly what our 
                       students needed—practical financial skills they'll use throughout their lives."
                     </blockquote>
-                    <p className="font-medium text-easy-green">- Teacher, Eastside Academy</p>
+                    <p className="font-medium text-easy-green">- Teacher, Euro school</p>
                   </div>
                 </div>
               </div>
