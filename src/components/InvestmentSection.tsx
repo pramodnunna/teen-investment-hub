@@ -105,7 +105,7 @@ export function InvestmentSection() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-medium">$100.00</p>
+                  <p className="font-medium">₹1000.00</p>
                   <p className="text-xs text-green-500">+3.2%</p>
                 </div>
               </div>
