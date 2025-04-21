@@ -69,7 +69,7 @@ export function InvestmentSection() {
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="p-4 bg-gray-50 rounded-xl">
                 <p className="text-sm text-gray-500 mb-1">Total Invested</p>
-                <p className="text-2xl font-bold">$250.00</p>
+                <p className="text-2xl font-bold">₹2500.00</p>
               </div>
               <div className="p-4 bg-gray-50 rounded-xl">
                 <p className="text-sm text-gray-500 mb-1">Current Value</p>
