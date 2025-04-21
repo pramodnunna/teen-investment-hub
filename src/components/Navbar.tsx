@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AlignRight, X } from "lucide-react";
 import { LoginModal } from "@/components/LoginModal";
@@ -7,6 +8,7 @@ import { LoginModal } from "@/components/LoginModal";
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="w-full py-4 px-4 md:px-8 bg-white/90 backdrop-blur-sm fixed top-0 z-50 shadow-sm">
@@ -31,7 +33,12 @@ export function Navbar() {
           >
             Log In
           </Button>
-          <Button className="rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">Sign Up</Button>
+          <Button
+            className="rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+            onClick={() => navigate("/signup")}
+          >
+            Sign Up
+          </Button>
         </div>
 
         {/* Mobile menu button */}
@@ -90,7 +97,13 @@ export function Navbar() {
               >
                 Log In
               </Button>
-              <Button className="w-full justify-center rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">
+              <Button
+                className="w-full justify-center rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+                onClick={() => {
+                  navigate("/signup");
+                  setIsMenuOpen(false);
+                }}
+              >
                 Sign Up
               </Button>
             </div>
