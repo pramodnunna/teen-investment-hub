@@ -61,9 +61,7 @@ export function TeensSection() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Your First Step to Financial Freedom
             </h2>
-            <p className="text-gray-600 mb-8">
-              PayWithEasy gives you the freedom to manage your own money while learning valuable financial skills that will benefit you for life.
-            </p>
+            <p className="text-gray-600 mb-8">EASY gives you the freedom to manage your own money while learning valuable financial skills that will benefit you for life.</p>
             
             <div className="space-y-4 mb-8">
               {benefits.map((benefit, index) => <div key={index} className="flex items-start">
