@@ -1,8 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, BookOpen, Lightbulb, LineChart, PiggyBank, TrendingUp } from "lucide-react";
-
 export function InvestmentSection() {
   const investmentFeatures = [{
     icon: <Lightbulb className="h-6 w-6 text-easy-red" />,
@@ -29,19 +27,14 @@ export function InvestmentSection() {
     title: "Smart Portfolios",
     description: "Pre-built, diversified portfolios designed for long-term growth."
   }];
-
-  return (
-    <section id="investments" className="py-20 px-4">
+  return <section id="investments" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-easy-red/10 text-easy-red rounded-full text-sm font-medium mb-4">Investment Hub</div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Smart Investing Made for Teens
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            PayWithEasy helps teens start their investment journey with educational content,
-            parent-supervised trading, and age-appropriate investment options.
-          </p>
+          <p className="text-gray-600 max-w-2xl mx-auto">EASY helps teens start their investment journey with educational content, parent-supervised trading, and age-appropriate investment options.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -56,12 +49,7 @@ export function InvestmentSection() {
             <div className="relative h-64 mb-6 bg-gradient-to-br from-easy-red/5 to-easy-orange/5 rounded-xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg className="w-full h-full" viewBox="0 0 500 200">
-                  <path 
-                    d="M0,150 C50,120 100,180 150,130 C200,80 250,120 300,100 C350,80 400,60 500,40" 
-                    fill="none" 
-                    stroke="url(#gradient)" 
-                    strokeWidth="3"
-                  />
+                  <path d="M0,150 C50,120 100,180 150,130 C200,80 250,120 300,100 C350,80 400,60 500,40" fill="none" stroke="url(#gradient)" strokeWidth="3" />
                   <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#E84C3D" />
@@ -119,13 +107,11 @@ export function InvestmentSection() {
           </Card>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {investmentFeatures.map((feature, index) => (
-              <div key={index} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+            {investmentFeatures.map((feature, index) => <div key={index} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
                 <div className="mb-3">{feature.icon}</div>
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600 text-sm">{feature.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
         
@@ -135,6 +121,5 @@ export function InvestmentSection() {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
