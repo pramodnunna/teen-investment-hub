@@ -1,4 +1,6 @@
+
 import { Star } from "lucide-react";
+
 export function TestimonialsSection() {
   const testimonials = [{
     name: "Sarah M.",
@@ -7,19 +9,53 @@ export function TestimonialsSection() {
     quote: "PayWithEasy has transformed how I teach my 15-year-old about money. The parental controls give me peace of mind while letting her learn independently."
   }, {
     name: "Josh T.",
-    role: "Teen",
+    role: "Parent of 2 teens",
     avatar: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    quote: "I love being able to save for things I want and even started investing with $10 a week. The app makes it easy to track everything."
+    quote: "The app makes it easy to monitor spending and set appropriate limits. My kids are learning valuable money management skills."
   }, {
     name: "Amanda K.",
     role: "Parent",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
     quote: "The investment education is fantastic. My son is learning real financial skills while I can monitor and approve his decisions."
-  }, {
-    name: "Tyler R.",
-    role: "Teen",
-    avatar: "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    quote: "Setting up savings goals is super easy, and watching my investment portfolio grow motivates me to save more each month."
   }];
-  return;
+
+  return (
+    <section className="py-16 bg-gradient-to-br from-white via-soft-blue/20 to-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-easy-blue">
+          What Parents Are Saying
+        </h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Join thousands of parents who trust PayWithEasy to help their teens develop strong financial habits
+        </p>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-easy-blue text-easy-blue" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-3">
+                <img
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold text-easy-blue">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
