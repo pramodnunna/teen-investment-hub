@@ -14,7 +14,7 @@ export function Navbar() {
     <nav className="w-full py-4 px-4 md:px-8 bg-white/90 backdrop-blur-sm fixed top-0 z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="PayWithEasy Logo" className="h-10 mr-2" />
+          <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="EASY Logo" className="h-10 mr-2" />
         </Link>
 
         {/* Desktop Navigation */}

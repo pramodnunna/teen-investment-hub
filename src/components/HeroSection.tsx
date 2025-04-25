@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PhoneNumberInput } from "./PhoneNumberInput";
+
 export function HeroSection() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const handleGetStarted = () => {
@@ -30,19 +31,16 @@ export function HeroSection() {
               <Button onClick={handleGetStarted} className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">
                 Get Started
               </Button>
-              
             </div>
             
-            
           </div>
-          
           
           <div className="relative animate-fade-in-slow">
             <div className="absolute -top-4 -left-4 w-64 h-64 bg-gradient-to-br from-easy-green/10 to-easy-blue/10 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-gradient-to-br from-easy-blue/10 to-easy-red/10 rounded-full blur-3xl"></div>
             <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
               <div className="bg-gradient-to-r from-easy-green to-easy-blue h-32 flex items-center justify-center">
-                <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="PayWithEasy Logo" className="h-16" />
+                <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="EASY Logo" className="h-16" />
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">

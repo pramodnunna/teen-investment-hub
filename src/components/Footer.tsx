@@ -6,7 +6,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <a href="/" className="flex items-center mb-4">
-              <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="PayWithEasy Logo" className="h-10" />
+              <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="EASY Logo" className="h-10" />
             </a>
             <p className="text-gray-600 mb-4 text-left">
               The modern banking solution for teenagers with guided investment opportunities.
@@ -57,7 +57,7 @@ export function Footer() {
 
         <div className="border-t border-gray-200 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between">
-            <p className="text-gray-500 text-sm">© {currentYear} PayWithEasy. All rights reserved.</p>
+            <p className="text-gray-500 text-sm">© {currentYear} EASY. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">Terms of Service</a>

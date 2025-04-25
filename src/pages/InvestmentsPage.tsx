@@ -1,4 +1,3 @@
-
 import { Navbar } from "@/components/Navbar";
 import { InvestmentSection } from "@/components/InvestmentSection";
 
@@ -7,7 +6,6 @@ export default function InvestmentsPage() {
     <>
       <Navbar />
       <main className="min-h-screen pt-24">
-        {/* Hero Section */}
         <section className="container mx-auto px-4 py-12">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 max-w-xl">
@@ -40,7 +38,6 @@ export default function InvestmentsPage() {
           </div>
         </section>
 
-        {/* Investment Features Section */}
         <InvestmentSection />
       </main>
     </>
