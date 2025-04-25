@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Eye, Lock, Shield, Sliders } from "lucide-react";
+
 export function ParentsSection() {
   const parentControls = [{
     icon: <Shield className="h-6 w-6 text-easy-blue" />,
     title: "Complete Oversight",
     description: "Monitor your teen's spending and savings in real-time with instant notifications."
   }, {
-    icon: <Lock className="h-6 w-6 text-easy-blue" />,
+    icon: <Lock className="h-6 w-6 text-easy-green" />,
     title: "Spending Controls",
     description: "Set daily or weekly spending limits and merchant category restrictions."
   }, {
@@ -14,18 +15,20 @@ export function ParentsSection() {
     title: "Investment Approval",
     description: "Review and approve any investment decisions your teen wants to make."
   }, {
-    icon: <Sliders className="h-6 w-6 text-easy-blue" />,
+    icon: <Sliders className="h-6 w-6 text-easy-green" />,
     title: "Flexible Permissions",
     description: "Gradually increase financial independence as your teen demonstrates responsibility."
   }];
-  return <section id="for-parents" className="py-20 px-4 bg-white">
+
+  return (
+    <section id="for-parents" className="py-20 px-4 bg-gradient-to-br from-easy-green/5 to-easy-blue/5">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block px-4 py-1 bg-easy-blue/10 text-easy-blue rounded-full text-sm font-medium mb-4">
               For Parents
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-easy-blue">
               Peace of Mind with Complete Parental Controls
             </h2>
             <p className="text-gray-600 mb-8">
@@ -33,11 +36,13 @@ export function ParentsSection() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {parentControls.map((control, index) => <div key={index} className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+              {parentControls.map((control, index) => (
+                <div key={index} className="bg-white p-5 rounded-xl border border-easy-green/10 shadow-sm hover:shadow-md transition-shadow">
                   <div className="mb-3">{control.icon}</div>
-                  <h3 className="font-semibold mb-2">{control.title}</h3>
+                  <h3 className="font-semibold mb-2 text-easy-blue">{control.title}</h3>
                   <p className="text-gray-600 text-sm">{control.description}</p>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             <Button className="rounded-full px-6 bg-easy-blue text-white hover:bg-easy-blue/90">
@@ -46,9 +51,9 @@ export function ParentsSection() {
           </div>
           
           <div className="relative">
-            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-gradient-to-br from-easy-blue/10 to-easy-purple/10 rounded-full blur-3xl"></div>
+            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-gradient-to-br from-easy-blue/10 to-easy-green/10 rounded-full blur-3xl"></div>
             
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 p-6 relative z-10">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-easy-green/10 p-6 relative z-10">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-4">Parent Dashboard</h3>
                 <div className="p-4 bg-gray-50 rounded-xl mb-4">
@@ -154,5 +159,6 @@ export function ParentsSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

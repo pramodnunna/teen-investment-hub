@@ -20,7 +20,7 @@ export function TestimonialsSection() {
   }];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-white via-soft-blue/20 to-white">
+    <section className="py-16 bg-gradient-to-br from-easy-green/5 via-easy-blue/5 to-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-easy-blue">
           What Parents Are Saying
@@ -33,11 +33,11 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in"
+              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in border border-easy-green/10"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-easy-blue text-easy-blue" />
+                  <Star key={i} className="w-5 h-5 fill-easy-green text-easy-green" />
                 ))}
               </div>
               <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
