@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Eye, Lock, Shield, Sliders } from "lucide-react";
+import { ArrowRight, Shield, Lock, Eye, Sliders } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export function ParentsSection() {
+  const navigate = useNavigate();
   const parentControls = [{
     icon: <Shield className="h-6 w-6 text-easy-blue" />,
     title: "Complete Oversight",
@@ -45,8 +47,11 @@ export function ParentsSection() {
               ))}
             </div>
             
-            <Button className="rounded-full px-6 bg-easy-blue text-white hover:bg-easy-blue/90">
-              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+            <Button 
+              className="rounded-full px-6 bg-easy-blue text-white hover:bg-easy-blue/90"
+              onClick={() => navigate('/signup')}
+            >
+              Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
           

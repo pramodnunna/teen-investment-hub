@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, BookOpen, Lightbulb, LineChart, PiggyBank, TrendingUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 export function InvestmentSection() {
+  const navigate = useNavigate();
   const investmentFeatures = [{
     icon: <Lightbulb className="h-6 w-6 text-easy-red" />,
     title: "Learn First",
@@ -27,7 +30,9 @@ export function InvestmentSection() {
     title: "Smart Portfolios",
     description: "Pre-built, diversified portfolios designed for long-term growth."
   }];
-  return <section id="investments" className="py-20 px-4">
+
+  return (
+    <section id="investments" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-easy-red/10 text-easy-red rounded-full text-sm font-medium mb-4">Investment Hub</div>
@@ -116,10 +121,14 @@ export function InvestmentSection() {
         </div>
         
         <div className="text-center">
-          <Button className="rounded-full px-6 py-6 bg-gradient-to-r from-easy-red to-easy-orange text-white hover:opacity-90 text-lg">
-            Try Demo Investment Account
+          <Button 
+            className="rounded-full px-6 py-6 bg-gradient-to-r from-easy-red to-easy-orange text-white hover:opacity-90 text-lg"
+            onClick={() => navigate('/signup')}
+          >
+            Start Investing
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

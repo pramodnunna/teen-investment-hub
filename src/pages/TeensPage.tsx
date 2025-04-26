@@ -4,8 +4,11 @@ import { WhyTeensLoveUs } from "@/components/WhyTeensLoveUs";
 import { TeensTestimonials } from "@/components/TeensTestimonials";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function TeensPage() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -22,7 +25,7 @@ export default function TeensPage() {
           </p>
           <Button
             className="mt-2 bg-gradient-to-r from-easy-green to-easy-blue rounded-full px-8 py-4 text-lg font-semibold shadow-lg hover:opacity-90 animate-fade-in"
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+            onClick={() => navigate('/signup')}
           >
             Get Started <ArrowRight className="ml-2" />
           </Button>
@@ -57,7 +60,7 @@ export default function TeensPage() {
           </h2>
           <Button
             className="bg-gradient-to-r from-easy-green to-easy-blue rounded-full px-7 py-3 text-lg font-semibold mt-2 hover:opacity-90"
-            onClick={() => window.location.href = '/signup'}
+            onClick={() => navigate('/signup')}
           >
             Open Your Account <ArrowRight className="ml-2" />
           </Button>
