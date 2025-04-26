@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const quotes = [
   {
-    text: "PayWithEasy helped me learn budgeting and now I always know where my allowance goes. Love my custom card!",
+    text: "EASY helped me learn budgeting and now I always know where my allowance goes. Love my custom card!",
     name: "Sanjana, 15",
   },
   {

@@ -6,7 +6,7 @@ export function TestimonialsSection() {
     name: "Sarah M.",
     role: "Parent",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80",
-    quote: "PayWithEasy has transformed how I teach my 15-year-old about money. The parental controls give me peace of mind while letting her learn independently."
+    quote: "EASY has transformed how I teach my 15-year-old about money. The parental controls give me peace of mind while letting her learn independently."
   }, {
     name: "Josh T.",
     role: "Parent of 2 teens",
@@ -26,7 +26,7 @@ export function TestimonialsSection() {
           What Parents Are Saying
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Join thousands of parents who trust PayWithEasy to help their teens develop strong financial habits
+          Join thousands of parents who trust EASY to help their teens develop strong financial habits
         </p>
         
         <div className="grid md:grid-cols-3 gap-8">
