@@ -1,18 +1,23 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Placeholder: handle sign up logic here
-    alert("Signup submitted! (Logic not implemented)");
+    setShowDialog(true);
   }
 
   return (
@@ -72,6 +77,16 @@ export default function SignupPage() {
           </div>
         </div>
       </main>
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-xl">Thanks for your interest!</DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-4">
+            <p className="text-gray-600">We are launching soon. We'll notify you when we're ready!</p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
