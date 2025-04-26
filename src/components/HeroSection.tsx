@@ -1,14 +1,33 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PhoneNumberInput } from "./PhoneNumberInput";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
 
 export function HeroSection() {
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [showDialog, setShowDialog] = useState(false);
+  const { toast } = useToast();
+
   const handleGetStarted = () => {
-    // You can add logic here to handle the phone number submission
+    if (!phoneNumber) {
+      toast({
+        title: "Please enter your phone number",
+        variant: "destructive",
+      });
+      return;
+    }
+    setShowDialog(true);
     console.log('Phone number submitted:', phoneNumber);
   };
+
   return <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -32,7 +51,6 @@ export function HeroSection() {
                 Get Started
               </Button>
             </div>
-            
           </div>
           
           <div className="relative animate-fade-in-slow">
@@ -102,5 +120,16 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-xl">Thanks for your interest!</DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-4">
+            <p className="text-gray-600">We are launching soon. We'll notify you when we're ready!</p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>;
 }
