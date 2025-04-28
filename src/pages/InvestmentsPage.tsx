@@ -1,7 +1,11 @@
+
 import { Navbar } from "@/components/Navbar";
 import { InvestmentSection } from "@/components/InvestmentSection";
+import { useNavigate } from "react-router-dom";
 
 export default function InvestmentsPage() {
+  const navigate = useNavigate();
+  
   return (
     <>
       <Navbar />
@@ -19,10 +23,16 @@ export default function InvestmentsPage() {
                 Give your teen a head start in financial independence. Safe, supervised investing with built-in learning tools.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-gradient-to-r from-easy-red to-easy-orange text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity animate-fade-in">
+                <button 
+                  className="bg-gradient-to-r from-easy-red to-easy-orange text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity animate-fade-in"
+                  onClick={() => navigate('/signup')}
+                >
                   Start Investing
                 </button>
-                <button className="border-2 border-easy-red text-easy-red px-8 py-3 rounded-full font-semibold hover:bg-easy-red hover:text-white transition-colors animate-fade-in">
+                <button 
+                  className="border-2 border-easy-red text-easy-red px-8 py-3 rounded-full font-semibold hover:bg-easy-red hover:text-white transition-colors animate-fade-in"
+                  onClick={() => navigate('/signup')}
+                >
                   Learn More
                 </button>
               </div>
