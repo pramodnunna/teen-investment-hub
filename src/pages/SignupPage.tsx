@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,16 +9,56 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [showDialog, setShowDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setShowDialog(true);
+    setLoading(true);
+    
+    try {
+      // Save the user signup data to Supabase
+      const { error } = await supabase
+        .from('user_signups')
+        .insert([
+          { 
+            name, 
+            email, 
+            phone_number: phoneNumber, 
+            password_hash: password // Note: In a real app, you should hash passwords
+          }
+        ]);
+      
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Show success dialog
+      setShowDialog(true);
+    } catch (error) {
+      console.error("Error saving signup:", error);
+      toast({
+        title: "Error",
+        description: "Failed to save your information. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -55,6 +96,17 @@ export default function SignupPage() {
               />
             </div>
             <div>
+              <label htmlFor="signup-phone" className="block mb-1 text-sm font-semibold text-gray-700">Phone Number</label>
+              <Input
+                id="signup-phone"
+                type="tel"
+                autoComplete="tel"
+                placeholder="Your phone number"
+                value={phoneNumber}
+                onChange={e => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div>
               <label htmlFor="signup-password" className="block mb-1 text-sm font-semibold text-gray-700">Password</label>
               <Input
                 id="signup-password"
@@ -67,8 +119,13 @@ export default function SignupPage() {
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
-            <Button type="submit" className="w-full rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 mt-3" size="lg">
-              Sign Up
+            <Button 
+              type="submit" 
+              className="w-full rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 mt-3" 
+              size="lg"
+              disabled={loading}
+            >
+              {loading ? "Signing Up..." : "Sign Up"}
             </Button>
           </form>
           <div className="text-sm text-center mt-6 text-gray-500">

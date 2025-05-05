@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { PhoneNumberInput } from "./PhoneNumberInput";
 import {
   Dialog,
@@ -10,13 +9,15 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export function HeroSection() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [showDialog, setShowDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleGetStarted = () => {
+  const handleGetStarted = async () => {
     if (!phoneNumber) {
       toast({
         title: "Please enter your phone number",
@@ -24,8 +25,39 @@ export function HeroSection() {
       });
       return;
     }
-    setShowDialog(true);
-    console.log('Phone number submitted:', phoneNumber);
+    
+    setLoading(true);
+    
+    try {
+      // Save the phone number to Supabase
+      const { error } = await supabase
+        .from('phone_leads')
+        .insert([{ phone_number: phoneNumber }]);
+      
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setShowDialog(true);
+      console.log('Phone number submitted:', phoneNumber);
+      
+      // Reset phone number after successful submission
+      setPhoneNumber('');
+    } catch (error) {
+      console.error("Error saving phone number:", error);
+      toast({
+        title: "Error",
+        description: "Failed to save your information. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -47,8 +79,12 @@ export function HeroSection() {
               <div className="w-full sm:w-auto">
                 <PhoneNumberInput value={phoneNumber} onChange={setPhoneNumber} />
               </div>
-              <Button onClick={handleGetStarted} className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90">
-                Get Started
+              <Button 
+                onClick={handleGetStarted} 
+                className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+                disabled={loading}
+              >
+                {loading ? "Processing..." : "Get Started"}
               </Button>
             </div>
           </div>
