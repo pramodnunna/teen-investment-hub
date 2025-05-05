@@ -16,7 +16,7 @@ export function Footer() {
               <a href="#" className="text-gray-500 hover:text-easy-blue transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-easy-red transition-colors">
+              <a href="https://www.instagram.com/paywitheasy/" className="text-gray-500 hover:text-easy-red transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-gray-500 hover:text-easy-blue transition-colors">
