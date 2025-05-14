@@ -1,5 +1,7 @@
 
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
+import { ContactDialog } from "./ContactDialog";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gray-50 pt-12 pb-8 px-4">
@@ -51,7 +53,14 @@ export function Footer() {
               <li><a href="#" className="text-gray-600 hover:text-easy-red transition-colors">About Us</a></li>
               <li><a href="#" className="text-gray-600 hover:text-easy-red transition-colors">Careers</a></li>
               <li><a href="#" className="text-gray-600 hover:text-easy-red transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-easy-red transition-colors">Contact Us</a></li>
+              <li>
+                <ContactDialog>
+                  <a href="#" className="text-gray-600 hover:text-easy-red transition-colors flex items-center gap-1">
+                    Contact Us
+                    <Mail size={16} />
+                  </a>
+                </ContactDialog>
+              </li>
             </ul>
           </div>
         </div>
