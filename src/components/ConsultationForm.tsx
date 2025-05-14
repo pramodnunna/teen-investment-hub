@@ -91,7 +91,8 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${supabase.auth.anon_key}`,
+            // Fix: Use the direct publishable key from SUPABASE_PUBLISHABLE_KEY instead of auth.anon_key
+            "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptZ3ZnZ2RjZHNrdXdvZ29jaHh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0MzcxMzIsImV4cCI6MjA2MjAxMzEzMn0.IQyv4cD_m6AiZ1F98aGq20OJ1Im0xM5galYZY6B15NY`,
           },
           body: JSON.stringify({
             schoolName: data.schoolName,
