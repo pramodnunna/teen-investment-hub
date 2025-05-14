@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import { ContactDialog } from "./ContactDialog";
 
 export function Footer() {
@@ -55,9 +55,8 @@ export function Footer() {
               <li><a href="#" className="text-gray-600 hover:text-easy-red transition-colors">Blog</a></li>
               <li>
                 <ContactDialog>
-                  <a href="#" className="text-gray-600 hover:text-easy-red transition-colors flex items-center gap-1">
+                  <a href="#" className="text-gray-600 hover:text-easy-red transition-colors">
                     Contact Us
-                    <Mail size={16} />
                   </a>
                 </ContactDialog>
               </li>
