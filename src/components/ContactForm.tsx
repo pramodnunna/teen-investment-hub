@@ -126,9 +126,9 @@ export function ContactForm() {
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-easy-blue hover:underline"
               >
-                EASY Headquarters<br />
-                123 Financial Avenue<br />
-                New York, NY 10001
+                T-Hub Phase 2<br />
+                20, Inorbit Mall Rd, Vittal Rao Nagar, Madhapur<br />
+                Hyderabad, Telangana 500081
               </a>
             </div>
           </div>
@@ -137,7 +137,7 @@ export function ContactForm() {
             <Phone className="h-5 w-5 text-easy-green mr-3 mt-0.5" />
             <div>
               <h4 className="font-medium">Phone</h4>
-              <p className="text-gray-600">+1 (800) 123-4567</p>
+              <p className="text-gray-600">+91 9578175555</p>
             </div>
           </div>
           
@@ -145,8 +145,8 @@ export function ContactForm() {
             <Mail className="h-5 w-5 text-easy-red mr-3 mt-0.5" />
             <div>
               <h4 className="font-medium">Email</h4>
-              <a href="mailto:contact@easy.com" className="text-gray-600 hover:text-easy-blue hover:underline">
-                contact@easy.com
+              <a href="mailto:hello@paywitheasy.com" className="text-gray-600 hover:text-easy-blue hover:underline">
+                hello@paywitheasy.com
               </a>
             </div>
           </div>
