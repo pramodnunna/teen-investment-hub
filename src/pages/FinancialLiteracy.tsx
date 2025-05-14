@@ -1,8 +1,18 @@
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Book, School, Target, Users, ShieldCheck, LineChart } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ConsultationForm } from "@/components/ConsultationForm";
+
 const FinancialLiteracy = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const handleScheduleClick = () => {
+    setIsFormOpen(true);
+  };
+
   return <div className="min-h-screen">
       <Navbar />
       <main className="pt-20">
@@ -109,7 +119,10 @@ const FinancialLiteracy = () => {
               </div>
 
               <div className="text-center">
-                <Button className="rounded-full px-8 py-6 bg-gradient-to-r from-easy-blue to-easy-green text-white hover:opacity-90 text-lg">
+                <Button 
+                  className="rounded-full px-8 py-6 bg-gradient-to-r from-easy-blue to-easy-green text-white hover:opacity-90 text-lg"
+                  onClick={handleScheduleClick}
+                >
                   Schedule a Consultation
                 </Button>
               </div>
@@ -117,6 +130,9 @@ const FinancialLiteracy = () => {
           </div>
         </section>
       </main>
+
+      <ConsultationForm open={isFormOpen} onOpenChange={setIsFormOpen} />
+
       <Footer />
     </div>;
 };

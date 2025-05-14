@@ -54,6 +54,48 @@ export type Database = {
         }
         Relationships: []
       }
+      school_consultations: {
+        Row: {
+          additional_info: string | null
+          contact_person: string
+          created_at: string
+          email: string
+          id: string
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          school_name: string
+          status: string | null
+          student_count: number | null
+        }
+        Insert: {
+          additional_info?: string | null
+          contact_person: string
+          created_at?: string
+          email: string
+          id?: string
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          school_name: string
+          status?: string | null
+          student_count?: number | null
+        }
+        Update: {
+          additional_info?: string | null
+          contact_person?: string
+          created_at?: string
+          email?: string
+          id?: string
+          phone?: string
+          preferred_date?: string
+          preferred_time?: string
+          school_name?: string
+          status?: string | null
+          student_count?: number | null
+        }
+        Relationships: []
+      }
       user_signups: {
         Row: {
           created_at: string | null
