@@ -1,6 +1,12 @@
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Book, School, Target, Users, ShieldCheck, LineChart } from "lucide-react";
+import { ConsultationForm } from "@/components/ConsultationForm";
+
 export function FinancialLiteracySection() {
+  const [consultationFormOpen, setConsultationFormOpen] = useState(false);
+  
   const coreComponents = [{
     icon: <Book className="h-6 w-6 text-easy-blue" />,
     title: "Foundational Financial Knowledge",
@@ -26,6 +32,7 @@ export function FinancialLiteracySection() {
     title: "Measurable Impact",
     description: "Track student progress and program effectiveness."
   }];
+  
   return <section id="financial-literacy" className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
@@ -73,10 +80,18 @@ export function FinancialLiteracySection() {
         </div>
         
         <div className="text-center">
-          <Button className="rounded-full px-6 py-6 bg-gradient-to-r from-easy-blue to-easy-green text-white hover:opacity-90 text-lg">
+          <Button 
+            onClick={() => setConsultationFormOpen(true)}
+            className="rounded-full px-6 py-6 bg-gradient-to-r from-easy-blue to-easy-green text-white hover:opacity-90 text-lg"
+          >
             Schedule a Consultation
           </Button>
         </div>
       </div>
+      
+      <ConsultationForm 
+        open={consultationFormOpen} 
+        onOpenChange={setConsultationFormOpen} 
+      />
     </section>;
 }

@@ -70,6 +70,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
   async function onSubmit(data: ConsultationFormValues) {
     setIsSubmitting(true);
     try {
+      // Insert the consultation into the database
       const { error } = await supabase.from("school_consultations").insert({
         school_name: data.schoolName,
         contact_person: data.contactPerson,
@@ -82,6 +83,32 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
       });
 
       if (error) throw error;
+      
+      // Send email notification
+      const emailResponse = await fetch(
+        "https://jmgvggdcdskuwogochxy.supabase.co/functions/v1/send-consultation-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${supabase.auth.anon_key}`,
+          },
+          body: JSON.stringify({
+            schoolName: data.schoolName,
+            contactPerson: data.contactPerson,
+            email: data.email,
+            phone: data.phone,
+            preferredDate: format(data.preferredDate, "yyyy-MM-dd"),
+            preferredTime: data.preferredTime,
+            studentCount: data.studentCount || undefined,
+            additionalInfo: data.additionalInfo || undefined,
+          }),
+        }
+      );
+      
+      if (!emailResponse.ok) {
+        console.warn("Email notification failed but form submitted successfully");
+      }
       
       setIsSuccess(true);
       toast({
