@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -14,6 +15,7 @@ export function ContactForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,9 +53,9 @@ export function ContactForm() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white rounded-lg shadow-sm overflow-hidden">
+    <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-6 bg-white rounded-lg shadow-sm overflow-hidden`}>
       {/* Contact Form */}
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         <h3 className="font-semibold text-xl mb-4">Send Us a Message</h3>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -64,6 +66,7 @@ export function ContactForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              className="w-full"
             />
           </div>
           
@@ -76,6 +79,7 @@ export function ContactForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="w-full"
             />
           </div>
           
@@ -86,6 +90,7 @@ export function ContactForm() {
               placeholder="Your phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              className="w-full"
             />
           </div>
           
@@ -96,7 +101,7 @@ export function ContactForm() {
               placeholder="How can we help you?"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="min-h-[120px]"
+              className="min-h-[100px] md:min-h-[120px] w-full"
               required
             />
           </div>
@@ -112,19 +117,19 @@ export function ContactForm() {
       </div>
       
       {/* Contact Information */}
-      <div className="bg-gray-50 p-6 flex flex-col justify-center">
-        <h3 className="text-lg font-semibold mb-6">Our Contact Information</h3>
+      <div className="bg-gray-50 p-4 md:p-6 flex flex-col justify-center">
+        <h3 className="text-lg font-semibold mb-4 md:mb-6">Our Contact Information</h3>
         
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <div className="flex items-start">
-            <MapPin className="h-5 w-5 text-easy-blue mr-3 mt-0.5" />
+            <MapPin className="h-5 w-5 text-easy-blue mr-3 mt-0.5 flex-shrink-0" />
             <div>
               <h4 className="font-medium">Address</h4>
               <a 
                 href="https://maps.app.goo.gl/wG9v3vqxXpAa5p2KA" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-easy-blue hover:underline"
+                className="text-gray-600 hover:text-easy-blue hover:underline text-sm md:text-base"
               >
                 T-Hub Phase 2<br />
                 20, Inorbit Mall Rd, Vittal Rao Nagar, Madhapur<br />
@@ -134,18 +139,18 @@ export function ContactForm() {
           </div>
           
           <div className="flex items-start">
-            <Phone className="h-5 w-5 text-easy-green mr-3 mt-0.5" />
+            <Phone className="h-5 w-5 text-easy-green mr-3 mt-0.5 flex-shrink-0" />
             <div>
               <h4 className="font-medium">Phone</h4>
-              <p className="text-gray-600">+91 9578175555</p>
+              <p className="text-gray-600 text-sm md:text-base">+91 9578175555</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <Mail className="h-5 w-5 text-easy-red mr-3 mt-0.5" />
+            <Mail className="h-5 w-5 text-easy-red mr-3 mt-0.5 flex-shrink-0" />
             <div>
               <h4 className="font-medium">Email</h4>
-              <a href="mailto:hello@paywitheasy.com" className="text-gray-600 hover:text-easy-blue hover:underline">
+              <a href="mailto:hello@paywitheasy.com" className="text-gray-600 hover:text-easy-blue hover:underline text-sm md:text-base">
                 hello@paywitheasy.com
               </a>
             </div>
