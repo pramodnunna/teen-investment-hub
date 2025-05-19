@@ -33,7 +33,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to admin
     const adminEmailResponse = await resend.emails.send({
       from: "EasyMoney Notifications <onboarding@resend.dev>",
-      to: ["admin@yourdomain.com"], // Replace with your admin email
+      to: "admin@yourdomain.com", // Replace with your admin email
       subject: "New School Consultation Request",
       html: `
         <h1>New Consultation Request</h1>
@@ -48,10 +48,10 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    // Send confirmation email to the school contact
+    // Fixed: The to field must be a string, not an array
     const contactEmailResponse = await resend.emails.send({
       from: "EasyMoney Financial Literacy <onboarding@resend.dev>",
-      to: [consultation.email],
+      to: consultation.email, // Fixed: Now passing a string instead of an array
       subject: "We've Received Your Consultation Request",
       html: `
         <h1>Thank You for Your Interest!</h1>
