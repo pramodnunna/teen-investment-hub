@@ -3,10 +3,11 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { validateIndianPhoneNumber, formatPhoneNumber } from "@/utils/validation";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -14,11 +15,27 @@ export function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
   const { toast } = useToast();
   const isMobile = useIsMobile();
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedPhone = formatPhoneNumber(e.target.value);
+    setPhone(formattedPhone);
+    
+    // Clear error when user is typing
+    if (phoneError) setPhoneError("");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate phone number before submitting
+    if (phone && !validateIndianPhoneNumber(phone)) {
+      setPhoneError("Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9");
+      return;
+    }
+    
     setLoading(true);
 
     try {
@@ -40,6 +57,7 @@ export function ContactForm() {
       setEmail("");
       setPhone("");
       setMessage("");
+      setPhoneError("");
     } catch (error) {
       console.error("Error submitting contact form:", error);
       toast({
@@ -84,13 +102,21 @@ export function ContactForm() {
           </div>
           
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone (optional)</label>
+            <label htmlFor="phone" className="block text-sm font-medium mb-1">
+              Phone (optional)
+              {phoneError && (
+                <span className="text-red-500 text-xs ml-2">
+                  <AlertCircle className="inline-block w-3 h-3 mr-1" />
+                  {phoneError}
+                </span>
+              )}
+            </label>
             <Input
               id="phone"
-              placeholder="Your phone number"
+              placeholder="10-digit phone number"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full"
+              onChange={handlePhoneChange}
+              className={`w-full ${phoneError ? 'border-red-500' : ''}`}
             />
           </div>
           

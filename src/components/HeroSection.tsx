@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { validateIndianPhoneNumber } from '@/utils/validation';
 
 export function HeroSection() {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -22,6 +23,16 @@ export function HeroSection() {
     if (!phoneNumber) {
       toast({
         title: "Please enter your phone number",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Validate phone number format
+    if (!validateIndianPhoneNumber(phoneNumber)) {
+      toast({
+        title: "Invalid phone number",
+        description: "Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9",
         variant: "destructive",
       });
       return;
