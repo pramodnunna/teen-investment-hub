@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { PhoneNumberInput } from "./PhoneNumberInput";
@@ -88,12 +89,12 @@ export function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <div className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto transition-all duration-300 ease-in-out">
                 <PhoneNumberInput value={phoneNumber} onChange={setPhoneNumber} />
               </div>
               <Button 
                 onClick={handleGetStarted} 
-                className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+                className="h-12 px-6 rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 transition-all duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98]"
                 disabled={loading}
               >
                 {loading ? "Processing..." : "Get Started"}
@@ -106,7 +107,7 @@ export function HeroSection() {
             <div className="absolute -bottom-4 -right-4 w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-easy-blue/10 to-easy-red/10 rounded-full blur-3xl"></div>
             
             {/* Mobile-optimized dashboard */}
-            <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 max-w-xs mx-auto sm:max-w-sm md:max-w-md">
+            <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 max-w-xs mx-auto sm:max-w-sm md:max-w-md transition-all duration-500 hover:shadow-2xl transform hover:translate-y-[-5px]">
               <div className="bg-gradient-to-r from-easy-green to-easy-blue h-24 md:h-32 flex items-center justify-center">
                 <img src="/lovable-uploads/b28c594b-2169-4102-b023-a716aeda5b76.png" alt="EASY Logo" className="h-12 md:h-16" />
               </div>
@@ -122,7 +123,7 @@ export function HeroSection() {
                 </div>
                 
                 <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                  <div className="p-3 md:p-4 bg-gray-50 rounded-xl">
+                  <div className="p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center">
                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-easy-blue/10 flex items-center justify-center text-easy-blue">
@@ -138,13 +139,13 @@ export function HeroSection() {
                       <p className="text-sm md:font-semibold">₹378.21</p>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-1.5 md:h-2 mt-2">
-                      <div className="bg-easy-blue h-1.5 md:h-2 rounded-full" style={{
+                      <div className="bg-easy-blue h-1.5 md:h-2 rounded-full transition-all duration-1000" style={{
                       width: '65%'
                     }}></div>
                     </div>
                   </div>
                   
-                  <div className="p-3 md:p-4 bg-gray-50 rounded-xl">
+                  <div className="p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center">
                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-easy-green/10 flex items-center justify-center text-easy-green">
@@ -162,7 +163,7 @@ export function HeroSection() {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-easy-green text-white hover:bg-easy-green/90 text-xs md:text-sm py-2 h-auto md:h-10">
+                <Button className="w-full bg-easy-green text-white hover:bg-easy-green/90 text-xs md:text-sm py-2 h-auto md:h-10 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]">
                   View Dashboard
                 </Button>
               </div>

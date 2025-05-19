@@ -19,22 +19,22 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link to="/teens" className="text-gray-600 hover:text-easy-blue transition-colors">For Teens</Link>
-          <Link to="/parents" className="text-gray-600 hover:text-easy-purple transition-colors">For Parents</Link>
-          <Link to="/investments" className="text-gray-600 hover:text-easy-red transition-colors">Investments</Link>
-          <Link to="/financial-literacy" className="text-gray-600 hover:text-easy-blue transition-colors">Financial Literacy</Link>
+          <Link to="/teens" className="text-gray-600 hover:text-easy-blue transition-colors duration-300">For Teens</Link>
+          <Link to="/parents" className="text-gray-600 hover:text-easy-purple transition-colors duration-300">For Parents</Link>
+          <Link to="/investments" className="text-gray-600 hover:text-easy-red transition-colors duration-300">Investments</Link>
+          <Link to="/financial-literacy" className="text-gray-600 hover:text-easy-blue transition-colors duration-300">Financial Literacy</Link>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
           <Button
             variant="outline"
-            className="rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white"
+            className="rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white transition-all duration-300"
             onClick={() => setLoginOpen(true)}
           >
             Log In
           </Button>
           <Button
-            className="rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+            className="rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => navigate("/signup")}
           >
             Sign Up
@@ -42,7 +42,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile menu button */}
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-gray-700">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-gray-700 transition-transform duration-300 ease-in-out focus:outline-none">
           {isMenuOpen ? <X size={24} /> : <AlignRight size={24} />}
         </button>
       </div>
@@ -53,28 +53,28 @@ export function Navbar() {
           <div className="flex flex-col space-y-4">
             <Link
               to="/teens"
-              className="text-gray-600 hover:text-easy-green py-2 transition-colors"
+              className="text-gray-600 hover:text-easy-green py-2 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               For Teens
             </Link>
             <Link
               to="/parents"
-              className="text-gray-600 hover:text-easy-purple py-2 transition-colors"
+              className="text-gray-600 hover:text-easy-purple py-2 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               For Parents
             </Link>
             <Link
               to="/investments"
-              className="text-gray-600 hover:text-easy-red py-2 transition-colors"
+              className="text-gray-600 hover:text-easy-red py-2 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Investments
             </Link>
             <Link
               to="/financial-literacy"
-              className="text-gray-600 hover:text-easy-blue py-2 transition-colors"
+              className="text-gray-600 hover:text-easy-blue py-2 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Financial Literacy
@@ -82,7 +82,7 @@ export function Navbar() {
             <div className="flex flex-col space-y-2 pt-2">
               <Button
                 variant="outline"
-                className="w-full justify-center rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white"
+                className="w-full justify-center rounded-full border-easy-blue text-easy-blue hover:bg-easy-blue hover:text-white transition-all duration-300"
                 onClick={() => {
                   setLoginOpen(true);
                   setIsMenuOpen(false);
@@ -91,7 +91,7 @@ export function Navbar() {
                 Log In
               </Button>
               <Button
-                className="w-full justify-center rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90"
+                className="w-full justify-center rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 transition-all duration-300"
                 onClick={() => {
                   navigate("/signup");
                   setIsMenuOpen(false);

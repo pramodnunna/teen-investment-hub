@@ -42,10 +42,10 @@ export function PhoneNumberInput({
         value={value} 
         onChange={handleChange}
         onBlur={handleBlur}
-        className={`rounded-full ${error ? 'border-red-500' : ''}`} 
+        className={`rounded-full transition-all duration-300 ${error ? 'border-red-500' : 'border-input hover:border-primary'}`} 
       />
       {error && (
-        <div className="text-xs text-red-500 flex items-center mt-1">
+        <div className="text-xs text-red-500 flex items-center mt-1 animate-fade-in">
           <AlertCircle className="w-3 h-3 mr-1" />
           {error}
         </div>
