@@ -30,10 +30,13 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const consultation: ConsultationRequest = await req.json();
 
-    // Send email to admin
-    const adminEmailResponse = await resend.emails.send({
+    // Send notification email to your own verified email address
+    // Update this to your verified email address
+    const notificationEmail = "pramod@paywitheasy.com";
+    
+    const emailResponse = await resend.emails.send({
       from: "EasyMoney Notifications <onboarding@resend.dev>",
-      to: "admin@yourdomain.com", // Replace with your admin email
+      to: notificationEmail,
       subject: "New School Consultation Request",
       html: `
         <h1>New Consultation Request</h1>
@@ -45,36 +48,17 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Preferred Time:</strong> ${consultation.preferredTime}</p>
         ${consultation.studentCount ? `<p><strong>Student Count:</strong> ${consultation.studentCount}</p>` : ''}
         ${consultation.additionalInfo ? `<p><strong>Additional Info:</strong> ${consultation.additionalInfo}</p>` : ''}
+        <hr>
+        <p><strong>Note:</strong> Since you are using Resend's free tier, confirmation emails to the requester cannot be sent automatically. 
+        You will need to reply to ${consultation.email} manually or verify your domain with Resend.</p>
       `,
     });
 
-    // Fixed: The to field must be a string, not an array
-    const contactEmailResponse = await resend.emails.send({
-      from: "EasyMoney Financial Literacy <onboarding@resend.dev>",
-      to: consultation.email, // Fixed: Now passing a string instead of an array
-      subject: "We've Received Your Consultation Request",
-      html: `
-        <h1>Thank You for Your Interest!</h1>
-        <p>Dear ${consultation.contactPerson},</p>
-        <p>We have received your request to schedule a consultation about our Financial Literacy Education Program for ${consultation.schoolName}.</p>
-        <p><strong>Details of your request:</strong></p>
-        <ul>
-          <li>Preferred Date: ${consultation.preferredDate}</li>
-          <li>Preferred Time: ${consultation.preferredTime}</li>
-        </ul>
-        <p>Our team will review your request and get back to you shortly to confirm your appointment.</p>
-        <p>If you have any questions in the meantime, please don't hesitate to contact us.</p>
-        <p>Best regards,<br>The EasyMoney Financial Literacy Team</p>
-      `,
-    });
-
-    console.log("Admin email sent:", adminEmailResponse);
-    console.log("Confirmation email sent:", contactEmailResponse);
+    console.log("Notification email sent:", emailResponse);
 
     return new Response(JSON.stringify({ 
-      message: "Emails sent successfully",
-      admin: adminEmailResponse,
-      confirmation: contactEmailResponse
+      message: "Consultation request received",
+      notification: emailResponse
     }), {
       status: 200,
       headers: {

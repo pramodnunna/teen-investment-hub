@@ -78,7 +78,7 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
       );
       
       if (!emailResponse.ok) {
-        console.warn("Email notification failed but form submitted successfully");
+        console.warn("Email notification encountered an issue", await emailResponse.json());
       }
       
       setIsSuccess(true);
