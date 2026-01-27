@@ -39,7 +39,7 @@ export function ContactForm() {
     setLoading(true);
 
     try {
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('contacts')
         .insert([
           { name, email, phone, message }

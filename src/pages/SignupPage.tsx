@@ -45,7 +45,7 @@ export default function SignupPage() {
     
     try {
       // Save the user signup data to Supabase
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('user_signups')
         .insert([
           { 
