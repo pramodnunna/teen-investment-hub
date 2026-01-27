@@ -56,13 +56,12 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
       
       // Send email notification
       const emailResponse = await fetch(
-        "https://jmgvggdcdskuwogochxy.supabase.co/functions/v1/send-consultation-email",
+        "https://bydtcfesvqpcrpyiabbv.supabase.co/functions/v1/send-consultation-email",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // Use the direct publishable key
-            "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptZ3ZnZ2RjZHNrdXdvZ29jaHh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0MzcxMzIsImV4cCI6MjA2MjAxMzEzMn0.IQyv4cD_m6AiZ1F98aGq20OJ1Im0xM5galYZY6B15NY`,
+            "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5ZHRjZmVzdnFwY3JweWlhYmJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1MDcxMzQsImV4cCI6MjA4NTA4MzEzNH0.srJDpSeDtvysBnjsxt0tblDUDOBr8JUebyMqp7X5iRQ`,
           },
           body: JSON.stringify({
             schoolName: data.schoolName,
