@@ -43,7 +43,7 @@ export function HeroSection() {
     
     try {
       // Save the phone number to Supabase
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('phone_leads')
         .insert([{ phone_number: phoneNumber }]);
       

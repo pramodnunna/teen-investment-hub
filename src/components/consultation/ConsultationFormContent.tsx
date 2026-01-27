@@ -41,7 +41,7 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
     setIsSubmitting(true);
     try {
       // Insert the consultation into the database
-      const { error } = await supabase.from("school_consultations").insert({
+      const { error } = await (supabase as any).from("school_consultations").insert({
         school_name: data.schoolName,
         contact_person: data.contactPerson,
         email: data.email,
