@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,6 @@ import { formatPhoneNumber, validateIndianPhoneNumber } from "@/utils/validation
 export default function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [showDialog, setShowDialog] = useState(false);
@@ -44,15 +42,15 @@ export default function SignupPage() {
     setLoading(true);
     
     try {
-      // Save the user signup data to Supabase
-      const { error } = await (supabase as any)
+      // Save the user signup data to Supabase (lead capture only - no authentication)
+      const { error } = await supabase
         .from('user_signups')
         .insert([
           { 
             name, 
             email, 
-            phone_number: phoneNumber, 
-            password_hash: password // Note: In a real app, you should hash passwords
+            phone: phoneNumber || "",
+            user_type: "interested_user"
           }
         ]);
       
@@ -84,9 +82,9 @@ export default function SignupPage() {
       <Navbar />
       <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-soft-blue to-soft-purple pt-24">
         <div className="w-full max-w-md bg-white shadow-lg rounded-3xl px-8 py-10 border border-soft-gray">
-          <h1 className="text-3xl font-extrabold text-center mb-3 text-easy-blue">Create your EASY Account</h1>
+          <h1 className="text-3xl font-extrabold text-center mb-3 text-easy-blue">Join the EASY Waitlist</h1>
           <p className="text-gray-500 text-center mb-6">
-            Sign up to start your financial journey.
+            Sign up to be notified when we launch.
           </p>
           <form onSubmit={handleSubmit} className="grid gap-5">
             <div>
@@ -133,26 +131,13 @@ export default function SignupPage() {
                 className={phoneError ? "border-red-500" : ""}
               />
             </div>
-            <div>
-              <label htmlFor="signup-password" className="block mb-1 text-sm font-semibold text-gray-700">Password</label>
-              <Input
-                id="signup-password"
-                type="password"
-                autoComplete="new-password"
-                required
-                minLength={6}
-                placeholder="Choose a strong password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-            </div>
             <Button 
               type="submit" 
               className="w-full rounded-full bg-gradient-to-r from-easy-green to-easy-blue text-white hover:opacity-90 mt-3" 
               size="lg"
               disabled={loading}
             >
-              {loading ? "Signing Up..." : "Sign Up"}
+              {loading ? "Joining..." : "Join Waitlist"}
             </Button>
           </form>
           <div className="text-sm text-center mt-6 text-gray-500">
