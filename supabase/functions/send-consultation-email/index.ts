@@ -53,16 +53,14 @@ const handler = async (req: Request): Promise<Response> => {
       email: consultation.email
     });
 
-    // Send notification email to verified email address
-    // NOTE: For Resend free tier, emails can only be sent to verified addresses
-    const notificationEmail = "p195471@gmail.com";
+    // Send notification email to business email
+    const notificationEmail = "hello@paywitheasy.com";
     
     console.log("Attempting to send email to:", notificationEmail);
-    console.log("Using API key (first 10 chars):", apiKey.substring(0, 10) + "...");
     
     try {
       const emailData = {
-        from: "EasyMoney Notifications <onboarding@resend.dev>",
+        from: "EASY Notifications <notifications@paywitheasy.com>",
         to: notificationEmail,
         subject: "New School Consultation Request",
         html: `
