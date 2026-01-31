@@ -54,7 +54,8 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     // Send notification email to verified email address
-    const notificationEmail = "hello@paywitheasy.com"; 
+    // NOTE: For Resend free tier, emails can only be sent to verified addresses
+    const notificationEmail = "p195471@gmail.com";
     
     console.log("Attempting to send email to:", notificationEmail);
     console.log("Using API key (first 10 chars):", apiKey.substring(0, 10) + "...");
