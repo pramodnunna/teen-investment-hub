@@ -65,8 +65,9 @@ export default function SignupPage() {
       
       // Show success dialog
       setShowDialog(true);
-    } catch (error) {
-      console.error("Error saving signup:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error("Signup error:", errorMessage);
       toast({
         title: "Error",
         description: "Failed to save your information. Please try again.",
