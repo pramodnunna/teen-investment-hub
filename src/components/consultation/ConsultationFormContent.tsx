@@ -54,16 +54,11 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
 
       if (error) throw error;
       
-      // Send email notification
-      const emailResponse = await fetch(
-        "https://bydtcfesvqpcrpyiabbv.supabase.co/functions/v1/send-consultation-email",
+      // Send email notification using Supabase functions
+      const { error: emailError } = await supabase.functions.invoke(
+        'send-consultation-email',
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5ZHRjZmVzdnFwY3JweWlhYmJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1MDcxMzQsImV4cCI6MjA4NTA4MzEzNH0.srJDpSeDtvysBnjsxt0tblDUDOBr8JUebyMqp7X5iRQ`,
-          },
-          body: JSON.stringify({
+          body: {
             schoolName: data.schoolName,
             contactPerson: data.contactPerson,
             email: data.email,
@@ -72,12 +67,23 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
             preferredTime: data.preferredTime,
             studentCount: data.studentCount || undefined,
             additionalInfo: data.additionalInfo || undefined,
-          }),
+          },
         }
       );
       
-      if (!emailResponse.ok) {
-        console.warn("Email notification encountered an issue", await emailResponse.json());
+      if (emailError) {
+        console.error("Email notification failed:", emailError.message);
+        toast({
+          title: "Request Saved",
+          description: "Your request was saved, but email notification failed. We'll review your request manually.",
+        });
+        setIsSuccess(true);
+        setTimeout(() => {
+          form.reset();
+          setIsSuccess(false);
+          onOpenChange(false);
+        }, 2000);
+        return;
       }
       
       setIsSuccess(true);
@@ -93,8 +99,9 @@ export function ConsultationFormContent({ onOpenChange }: ConsultationFormConten
         onOpenChange(false);
       }, 2000);
       
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error("Form submission error:", errorMessage);
       toast({
         title: "Submission Failed",
         description: "There was a problem submitting your request. Please try again.",

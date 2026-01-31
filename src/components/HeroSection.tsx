@@ -43,9 +43,9 @@ export function HeroSection() {
     
     try {
       // Save the phone number to Supabase
-      const { error } = await (supabase as any)
+      const { error } = await supabase
         .from('phone_leads')
-        .insert([{ phone_number: phoneNumber }]);
+        .insert({ phone: phoneNumber });
       
       if (error) {
         toast({
@@ -57,12 +57,12 @@ export function HeroSection() {
       }
       
       setShowDialog(true);
-      console.log('Phone number submitted:', phoneNumber);
       
       // Reset phone number after successful submission
       setPhoneNumber('');
-    } catch (error) {
-      console.error("Error saving phone number:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error("Error saving phone lead:", errorMessage);
       toast({
         title: "Error",
         description: "Failed to save your information. Please try again.",

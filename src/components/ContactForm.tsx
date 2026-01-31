@@ -58,8 +58,9 @@ export function ContactForm() {
       setPhone("");
       setMessage("");
       setPhoneError("");
-    } catch (error) {
-      console.error("Error submitting contact form:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error("Contact form error:", errorMessage);
       toast({
         title: "Error",
         description: "There was a problem sending your message. Please try again.",
